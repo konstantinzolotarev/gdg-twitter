@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 well well-sm">
+    <form>
+      <div class="form-group">
+        <input type="text" class="form-control" id='port' data-ng-model='post'/>
+      </div>
+
+      <div class="form-group">
+        <button class='btn btn-success' data-ng-disabled='!post' data-ng-click='sendPost(post)'>
+          <i class="glyphicon glyphicon-ok"></i>&nbsp;
+          Send post
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<div>
+  <h2>List of tweets</h2>
+  <div class="alert alert-info" data-ng-if='tweets.length == 0'>
+    There is no tweets for you !
+  </div>
+  <div class="clearfix well well-sm" data-ng-repeat="tweet in tweets">
+    <div class="pull-left">{{tweet.post}}</div>
+    <div class="pull-right pointer" data-ng-click="removeTweet(tweet, $index)">
+      <i class="glyphicon glyphicon-trash"></i>
+    </div>
+  </div>
+</div>
